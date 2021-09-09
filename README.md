@@ -2,7 +2,7 @@
 
 - Hexagonal architecture.
 - Java 11.
-- Tecnologies: Maven, Spring Boot, Spring Core, Mockito, Junit5, SpringRunner, Jacoco, Jpa, Spring Data, Mongo y Maria. 
+- Tecnologies: Maven, Spring Boot, Spring Core, Spring Security, Mockito, Junit5, SpringRunner, Jacoco, Jpa, Spring Data, Mongo y Maria. 
 
 - An UML. The reason for choosing a hexagonal architecture was for scalability, where you can choose different inputs, outputs and data resources.
 ![UML image](/newsletter/files/uml.png)
