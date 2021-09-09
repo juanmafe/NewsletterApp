@@ -7,7 +7,7 @@
 - An UML. The reason for choosing a hexagonal architecture was for scalability:
 ![UML image](/newsletter/files/uml.png)
 
-- An ER model, MariaDB and MongoDB under Docker have been used. The reason for choosing a relational database was (again) thinking about scalability (possibility of creating subcategories, newsletter for companies, etc). MongoDB has been used for a "news feed" function.
+- An ER model, MariaDB and MongoDB under Docker have been used. The reason for choosing a relational database was (again) thinking about scalability (possibility of creating subcategories, newsletter for companies, etc). MongoDB has been used for a "news feed" function (The document of Mongo database selected just have two fields: "title" and "description").
 ![UML image](/newsletter/files/mer.png)
 
 - Junit5, Mockito and SpringRunner have been used for the unit tests. Only the classes that contain business logic have been tested (entities and DTOs have been excluded with an annotation). Jacoco has been used for the coverage and it is 100%.
@@ -74,4 +74,4 @@
     * By importing the project from an IDE with Spring Boot support and starting it with one click.
     * By clicking on the mvnw script file in the root of the project. All dependencies will be downloaded and the application will be started. 
     
-  Previously, it is necessary to edit the properties file with the connection properties of our local data base. SQL files (rollback included) are located in the following path: '/resources/database'.
+  Previously, it is necessary to edit the properties file with the connection properties of our local database. SQL files (rollback included) are located in the following path: '/resources/database'.
