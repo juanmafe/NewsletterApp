@@ -1,4 +1,2 @@
-DROP TABLE NEWS_SUBS_TAGS;
-DROP TABLE NEWS_SUBS;
-DROP TABLE NEWS_SUBS_TECH;
-DROP TABLE NEWS_SUBS_FREQ;
+db.news.deleteOne({title: "Lanzamiento Windows 11"})
+db.news.deleteOne({title: "Lanzamiento Manjaro 20.1"}) 
