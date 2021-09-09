@@ -4,7 +4,7 @@ import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
 
 /**
  * Newsletter Utils.
- * @author juanmafe
+ * @author juanmafe.
  */
 public final class NewsletterUtils {
 

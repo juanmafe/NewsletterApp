@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * Exclude Class from Jacoco report.
- * @author juanmafe
+ * @author juanmafe.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
