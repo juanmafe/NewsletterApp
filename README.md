@@ -4,10 +4,10 @@
 - Java 11.
 - Tecnologies: Maven, Spring Boot, Spring Core, Mockito, Junit5, SpringRunner, Jacoco, Jpa, Spring Data, Mongo y Maria. 
 
-- An UML. The reason for choosing a hexagonal architecture was for scalability:
+- An UML. The reason for choosing a hexagonal architecture was for scalability, where you can choose different inputs, outputs and data resources.
 ![UML image](/newsletter/files/uml.png)
 
-- An ER model, MariaDB and MongoDB under Docker have been used. The reason for choosing a relational database was (again) thinking about scalability (possibility of creating subcategories, newsletter for companies, etc). MongoDB has been used for a "news feed" function (The document of Mongo database selected just have two fields: "title" and "description").
+- An ER model, MariaDB and MongoDB under Docker have been used. The reason for choosing a relational database was (again) thinking about scalability (possibility of creating subcategories, newsletter for companies, etc). MongoDB has been used for a "news feed" function (the document of Mongo database selected just have two fields: "title" and "description").
 ![UML image](/newsletter/files/mer.png)
 
 - Junit5, Mockito and SpringRunner have been used for the unit tests. Only the classes that contain business logic have been tested (entities and DTOs have been excluded with an annotation). Jacoco has been used for the coverage and it is 100%.
