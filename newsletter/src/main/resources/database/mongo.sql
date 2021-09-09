@@ -1,0 +1,2 @@
+db.news.insert({ "title":"Lanzamiento Windows 11", "description":"Microsoft lanzará en octubre Windows 11" })
+db.news.insert({ "title":"Lanzamiento Manjaro 20.1", "description":"El equipo de Manjaro lanzó en agosto la version 20.1" })
