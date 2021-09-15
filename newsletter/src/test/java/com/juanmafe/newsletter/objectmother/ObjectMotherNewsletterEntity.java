@@ -8,7 +8,7 @@ import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterTechnologiesEntit
 
 /**
  * Object Mother Newsletter Entity.
- * @author juanmafe
+ * @author juanmafe.
  */
 public class ObjectMotherNewsletterEntity {
 

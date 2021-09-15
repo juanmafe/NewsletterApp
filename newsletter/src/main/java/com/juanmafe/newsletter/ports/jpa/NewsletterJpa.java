@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.jpa;
+package com.juanmafe.newsletter.ports.jpa;
 
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +8,14 @@ import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterSubscriptionEntit
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
 import com.juanmafe.newsletter.domain.persistence.NewsletterPersistence;
 import com.juanmafe.newsletter.domain.utils.NewsletterUtils;
+import com.juanmafe.newsletter.ports.mappers.ToNewsletterSubscriptionMapper;
 
 /**
  * Newsletter JPA Persistence Layer.
  * @author juanmafe.
  */
 @Repository
-public class NewsletterJpa implements NewsletterPersistence {
+public class NewsletterJpa implements NewsletterPersistence, ToNewsletterSubscriptionMapper {
 
 	/** {@link NewsletterRepository} newsletterRepository */
 	@Autowired
@@ -22,7 +23,7 @@ public class NewsletterJpa implements NewsletterPersistence {
 
 	@Override
 	public Stream<NewsletterSubscription> getAllNewsletters() {
-		return newsletterRepository.findAll().stream().map(NewsletterSubscriptionEntity::toNewsletterSubscription);
+		return newsletterRepository.findAll().stream().map(this::toNewsletterSubscription);
 	}
 
 	@Override

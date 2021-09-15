@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
 
@@ -29,14 +30,17 @@ public class NewsletterSubscriptionEntity {
 
 	/** {@link Long} id */
 	@Id
+	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/** {@link String} name */
+	@NotNull(message = "el nombre debe ser obligatorio")
 	@Column(name="NAME", length=200, nullable=false)
 	private String name;
 
 	/** {@link String} surname */
+	@NotNull
 	@Column(name="SURNAME", length=200, nullable=false)
 	private String surname;
 
@@ -45,12 +49,14 @@ public class NewsletterSubscriptionEntity {
 	private LocalDate birthday;
 
 	/** {@link NewsletterFrequencyEntity} frequency */
-	@ManyToOne(fetch = FetchType.LAZY)
+	@NotNull
+	@ManyToOne
 	@JoinColumn(name = "ID_NEWS_SUBS_FREQ", nullable=false)
 	private NewsletterFrequencyEntity frequency;
 
 	/** {@link NewsletterTechnologiesEntity} {@link List} technologies */
-	@ManyToMany(fetch = FetchType.LAZY)
+	@NotNull
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "NEWS_SUBS_TAGS",
 		joinColumns = @JoinColumn(name = "ID_NEWS_SUBS", nullable = false),
 		inverseJoinColumns = @JoinColumn(name="ID_NEWS_SUBS_TECH", nullable = false))
@@ -155,21 +161,6 @@ public class NewsletterSubscriptionEntity {
 	 */
 	public void setTechnologies(List<NewsletterTechnologiesEntity> technologies) {
 		this.technologies = technologies != null ? new ArrayList<>(technologies) : new ArrayList<>();
-	}
-
-	/**
-	 * Turns {@link NewsletterSubscriptionEntity} into {@link NewsletterSubscription};
-	 * @return {@link NewsletterSubscription} Object.
-	 */
-	public NewsletterSubscription toNewsletterSubscription() {
-		var newsletterSubscription = new NewsletterSubscription();
-		newsletterSubscription.setId(this.getId() != null ? this.getId().toString() : null);
-		newsletterSubscription.setName(this.getName());
-		newsletterSubscription.setSurname(this.getSurname());
-		newsletterSubscription.setBirthday(this.getBirthday());
-		newsletterSubscription.setFrequency(this.getFrequency().toNewsletterFrequency());
-		newsletterSubscription.setTechnologies(this.getTechnologies().stream().map(NewsletterTechnologiesEntity::toNewsletterTechnologies).collect(Collectors.toList()));
-		return newsletterSubscription;
 	}
 
 }

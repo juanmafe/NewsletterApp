@@ -6,7 +6,7 @@ import com.juanmafe.newsletter.domain.models.news.News;
 
 /**
  * Object Mother News.
- * @author juanmafe
+ * @author juanmafe.
  */
 public class ObjectMotherNews {
 

@@ -1,22 +1,15 @@
-package com.juanmafe.newsletter.adapters.dto;
+package com.juanmafe.newsletter.ports.dto;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterTechnologies;
 
 /**
- * Newsletter Subscription Dto.
+ * Newsletter Consumed DTO.
  * @author juanmafe.
  */
 @ExcludeFromJacocoGeneratedReport
-public class NewsletterSubscriptionDto implements Serializable {
-
-	/** serialVersionUID */
-	private static final long serialVersionUID = 8312984321018060549L;
+public class NewsletterConsumedDto {
 
 	/** {@link String} name */
 	private String name;
@@ -32,23 +25,6 @@ public class NewsletterSubscriptionDto implements Serializable {
 
 	/** {@link String} {@link List} technologies */
 	private List<String> technologies;
-
-	/**
-	 * Default Constructor.
-	 */
-	public NewsletterSubscriptionDto() {}
-
-	/**
-	 * Constructor based on {@link NewsletterSubscription}.
-	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
-	 */
-	public NewsletterSubscriptionDto(NewsletterSubscription newsletterSubscription) {
-		this.name = newsletterSubscription.getName();
-		this.surname = newsletterSubscription.getSurname();
-		this.birthday = newsletterSubscription.getBirthday();
-		this.frequency = newsletterSubscription.getFrequency().getName();
-		this.technologies = newsletterSubscription.getTechnologies().stream().map(NewsletterTechnologies::getName).collect(Collectors.toList());
-	}
 
 	/**
 	 * @return the name

@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.domain.services;
+package com.juanmafe.newsletter.domain.services.news;
 
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +7,11 @@ import com.juanmafe.newsletter.domain.models.news.News;
 import com.juanmafe.newsletter.domain.persistence.NewsPersistence;
 
 /**
- * News Service.
+ * Get All News Service.
  * @author juanmafe.
  */
 @Service
-public class NewsService {
+public class GetAllNewsService {
 
 	/** {@link NewsPersistence} newsPersistence */
 	@Autowired
@@ -21,7 +21,7 @@ public class NewsService {
 	 * Gets all news.
 	 * @return {@link News} {@link Stream}.
 	 */
-	public Stream<News> getAllNews() {
+	public Stream<News> execute() {
 		return newsPersistence.getAllNews();
 	}
 

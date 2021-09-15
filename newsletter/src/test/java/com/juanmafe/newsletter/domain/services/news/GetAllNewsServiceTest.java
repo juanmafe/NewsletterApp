@@ -1,28 +1,25 @@
-package com.juanmafe.newsletter.domain.services;
+package com.juanmafe.newsletter.domain.services.news;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.juanmafe.newsletter.domain.persistence.NewsPersistence;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
 
 /**
- * News Service Test.
- * @author juanmafe
+ * Get All News Service Test.
+ * @author juanmafe.
  */
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
-class NewsServiceTest {
+class GetAllNewsServiceTest {
 
-	/** {@link NewsService} newsService */
+	/** {@link GetAllNewsService} getAllNewsService */
 	@Autowired
-	private NewsService newsService;
+	private GetAllNewsService getAllNewsService;
 
 	/** {@link NewsPersistence} newsPersistence */
 	@MockBean
@@ -40,8 +37,8 @@ class NewsServiceTest {
 	 * Checks the get all news service.
 	 */
 	@Test
-	void getAllNewsTest() {
-		assertThat(newsService.getAllNews()).isNotEmpty().anyMatch(n -> n.getTitle().equals("Linux"));
+	void getAllNewsServiceTest() {
+		assertThat(getAllNewsService.execute()).isNotEmpty().anyMatch(n -> n.getTitle().equals("Linux"));
 	}
 
 }

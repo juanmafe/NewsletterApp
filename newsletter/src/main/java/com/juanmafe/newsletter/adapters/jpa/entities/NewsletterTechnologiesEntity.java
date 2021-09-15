@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import org.springframework.beans.BeanUtils;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterTechnologies;
 
@@ -105,16 +104,6 @@ public class NewsletterTechnologiesEntity {
 	 */
 	public void setNewsletter(List<NewsletterSubscriptionEntity> newsletter) {
 		this.newsletter = newsletter != null ? new ArrayList<>(newsletter) : new ArrayList<>();
-	}
-
-	/**
-	 * Turns {@link NewsletterTechnologiesEntity} into {@link NewsletterTechnologies};
-	 * @return {@link NewsletterTechnologies} Object.
-	 */
-	public NewsletterTechnologies toNewsletterTechnologies() {
-		var newsletterTechnologies = new NewsletterTechnologies();
-		BeanUtils.copyProperties(this, newsletterTechnologies);
-		return newsletterTechnologies;
 	}
 
 }

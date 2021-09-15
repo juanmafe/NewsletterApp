@@ -10,15 +10,15 @@ import com.juanmafe.newsletter.domain.models.newsletter.NewsletterTechnologies;
 
 /**
  * Object Mother Newsletter.
- * @author juanmafe
+ * @author juanmafe.
  */
 public final class ObjectMotherNewsletter {
 
 	public static final String NEWSLETTER_JSON = "{\r\n"
 			+ "\"name\" : \"Prueba\",\r\n"
 			+ "\"surname\" : \"Insert\",\r\n"
-			+ "\"frequency\" : {\"id\" : \"1\"},\r\n"
-			+ "\"technologies\" : [{\"id\" : \"1\"}, {\"id\" : \"2\"}]\r\n"
+			+ "\"frequency\" : \"1\",\r\n"
+			+ "\"technologies\" : [\"1\", \"2\"]\r\n"
 			+ "}";
 
 	public static Stream<NewsletterSubscription>getNewsletterSubscriptionStream() {

@@ -6,7 +6,7 @@ import com.juanmafe.newsletter.adapters.mongo.entities.NewsEntity;
 
 /**
  * Object Mother News Entity.
- * @author juanmafe
+ * @author juanmafe.
  */
 public class ObjectMotherNewsEntity {
 

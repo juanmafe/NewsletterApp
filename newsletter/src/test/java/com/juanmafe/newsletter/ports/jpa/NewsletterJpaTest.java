@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.jpa;
+package com.juanmafe.newsletter.ports.jpa;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,8 +21,8 @@ import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletterEntity;
 
 /**
- * Newsletter Jpa Test.
- * @author juanmafe
+ * Newsletter JPA Test.
+ * @author juanmafe.
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)

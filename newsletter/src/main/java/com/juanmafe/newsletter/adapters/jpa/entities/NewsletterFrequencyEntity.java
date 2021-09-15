@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.springframework.beans.BeanUtils;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterFrequency;
 
@@ -84,16 +83,6 @@ public class NewsletterFrequencyEntity {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	/**
-	 * Turns {@link NewsletterFrequencyEntity} into {@link NewsletterFrequency};
-	 * @return {@link NewsletterFrequency} Object.
-	 */
-	public NewsletterFrequency toNewsletterFrequency() {
-		var newsletterFrequency = new NewsletterFrequency();
-		BeanUtils.copyProperties(this, newsletterFrequency);
-		return newsletterFrequency;
 	}
 
 }

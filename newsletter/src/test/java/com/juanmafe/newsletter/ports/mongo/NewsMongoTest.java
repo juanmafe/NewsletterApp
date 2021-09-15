@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.mongo;
+package com.juanmafe.newsletter.ports.mongo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,8 +13,8 @@ import com.juanmafe.newsletter.adapters.mongo.dao.NewsRepository;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsEntity;
 
 /**
- * Newsletter Jpa Test.
- * @author juanmafe
+ * Newsletter Mongo Test.
+ * @author juanmafe.
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)

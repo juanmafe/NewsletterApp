@@ -6,30 +6,26 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import com.juanmafe.newsletter.NewsletterApplication;
-import com.juanmafe.newsletter.domain.services.NewsService;
+import com.juanmafe.newsletter.adapters.rest.news.NewsGetAllRest;
+import com.juanmafe.newsletter.domain.services.news.GetAllNewsService;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
 
 /**
- * News Controller Test.
- * @author juanmafe
+ * News Get All Rest Controller Test.
+ * @author juanmafe.
  */
-@WebMvcTest(NewsController.class)
-@AutoConfigureMockMvc(addFilters = false)
-@ContextConfiguration(classes = NewsletterApplication.class)
-class NewsControllerTest {
+@WebMvcTest(NewsGetAllRest.class)
+class NewsGetAllRestTest {
 
 	/** URL */
 	private static final String URL_NEWS= "/news";
 
-	/** {@link NewsService} newsService */
+	/** {@link GetAllNewsService} getAllNewsService */
 	@MockBean
-	private NewsService newsService;
+	private GetAllNewsService getAllNewsService;
 
 	/** {@link MockMvc} mockMvc */
 	@Autowired
@@ -40,7 +36,7 @@ class NewsControllerTest {
 	 */
 	@BeforeEach
 	void init() {
-		Mockito.when(newsService.getAllNews()).thenReturn(ObjectMotherNews.getNewsStream());
+		Mockito.when(getAllNewsService.execute()).thenReturn(ObjectMotherNews.getNewsStream());
 	}
 
 	/**
@@ -48,7 +44,7 @@ class NewsControllerTest {
 	 * @throws Exception
 	 */
 	@Test
-	void getAllNewsTest() throws Exception {
+	void getAllNewsRestTest() throws Exception {
 		mockMvc.perform(get(URL_NEWS)).andExpect(status().isOk());
 	}
 
