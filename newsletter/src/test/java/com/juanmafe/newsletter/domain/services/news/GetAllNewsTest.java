@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
+import com.juanmafe.newsletter.ports.in.GetAllNewsService;
 import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
@@ -15,7 +16,7 @@ import com.juanmafe.newsletter.ports.out.NewsPersistence;
  * @author juanmafe.
  */
 @SpringBootTest
-class GetAllNewsServiceTest {
+class GetAllNewsTest {
 
 	/** {@link GetAllNewsService} getAllNewsService */
 	@Autowired

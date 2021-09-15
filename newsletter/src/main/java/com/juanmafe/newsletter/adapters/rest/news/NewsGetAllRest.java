@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.juanmafe.newsletter.domain.models.news.News;
-import com.juanmafe.newsletter.domain.services.news.GetAllNewsService;
+import com.juanmafe.newsletter.domain.usecases.GetAllNews;
+import com.juanmafe.newsletter.ports.in.GetAllNewsService;
 
 /**
  * News Get All Rest Controller.
@@ -19,7 +20,7 @@ import com.juanmafe.newsletter.domain.services.news.GetAllNewsService;
 @RequestMapping("/news")
 public class NewsGetAllRest {
 
-	/** {@link GetAllNewsService} getAllNewsService */
+	/** {@link GetAllNews} getAllNewsService */
 	@Autowired
 	private GetAllNewsService getAllNewsService;
 

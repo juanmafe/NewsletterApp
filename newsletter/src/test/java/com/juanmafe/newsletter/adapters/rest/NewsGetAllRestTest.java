@@ -10,8 +10,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import com.juanmafe.newsletter.adapters.rest.news.NewsGetAllRest;
-import com.juanmafe.newsletter.domain.services.news.GetAllNewsService;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
+import com.juanmafe.newsletter.ports.in.GetAllNewsService;
 
 /**
  * News Get All Rest Controller Test.
