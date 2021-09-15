@@ -43,7 +43,7 @@ class NewsletterDeleteRestTest {
 
 	/**
 	 * Checks the delete newsletter REST.
-	 * @throws Exception
+	 * @throws Exception.
 	 */
 	@Test
 	void deleteNewsletterRestTest() throws Exception {

@@ -1,9 +1,7 @@
 package com.juanmafe.newsletter.domain.utils;
 
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-
 /**
- * Newsletter Utils.
+ * Newsletter utilities.
  * @author juanmafe.
  */
 public final class NewsletterUtils {
@@ -12,19 +10,6 @@ public final class NewsletterUtils {
 	 * Private Constructor
 	 */
 	private NewsletterUtils() {}
-
-	/**
-	 * Checks newsletter empty fields.
-	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
-	 * @return boolean.
-	 */
-	public static boolean checkNewsletterEmptyFields(NewsletterSubscription newsletterSubscription) {
-		return newsletterSubscription != null
-			&& newsletterSubscription.getName() != null
-			&& newsletterSubscription.getSurname() != null
-			&& newsletterSubscription.getFrequency() != null
-			&& !newsletterSubscription.getTechnologies().isEmpty();
-	}
 
 	/**
 	 * Checks if a string is a number.

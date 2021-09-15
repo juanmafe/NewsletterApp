@@ -21,6 +21,12 @@ public final class ObjectMotherNewsletter {
 			+ "\"technologies\" : [\"1\", \"2\"]\r\n"
 			+ "}";
 
+	public static final String WRONG_NEWSLETTER_JSON = "{\r\n"
+			+ "\"name\" : \"Prueba\",\r\n"
+			+ "\"surname\" : \"Insert\",\r\n"
+			+ "\"technologies\" : [\"1\", \"2\"]\r\n"
+			+ "}";
+
 	public static Stream<NewsletterSubscription>getNewsletterSubscriptionStream() {
 		return Arrays.asList(getNewsletterSubscription()).stream();
 	}

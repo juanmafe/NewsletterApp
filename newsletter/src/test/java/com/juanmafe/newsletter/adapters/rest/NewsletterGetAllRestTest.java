@@ -41,7 +41,7 @@ class NewsletterGetAllRestTest {
 
 	/**
 	 * Checks the get all newsletter REST.
-	 * @throws Exception
+	 * @throws Exception.
 	 */
 	@Test
 	void getAllNewslettersRestTest() throws Exception {

@@ -41,7 +41,7 @@ class NewsGetAllRestTest {
 
 	/**
 	 * Checks the get all news REST.
-	 * @throws Exception
+	 * @throws Exception.
 	 */
 	@Test
 	void getAllNewsRestTest() throws Exception {

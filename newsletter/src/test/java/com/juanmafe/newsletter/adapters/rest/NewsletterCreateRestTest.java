@@ -45,12 +45,22 @@ class NewsletterCreateRestTest {
 
 	/**
 	 * Checks the create newsletter REST.
-	 * @throws Exception
+	 * @throws Exception.
 	 */
 	@Test
 	void createNewsletterRestTest() throws Exception {
 		mockMvc.perform(post(URL_NEWSLETTER).contentType(MediaType.APPLICATION_JSON)
 			.content(ObjectMotherNewsletter.NEWSLETTER_JSON)).andExpect(status().isCreated());
+	}
+
+	/**
+	 * Checks the create newsletter REST with a wrong JSON.
+	 * @throws Exception.
+	 */
+	@Test
+	void createNewsletterRestWrongJsonTest() throws Exception {
+		mockMvc.perform(post(URL_NEWSLETTER).contentType(MediaType.APPLICATION_JSON)
+			.content(ObjectMotherNewsletter.WRONG_NEWSLETTER_JSON)).andExpect(status().is4xxClientError());
 	}
 
 }
