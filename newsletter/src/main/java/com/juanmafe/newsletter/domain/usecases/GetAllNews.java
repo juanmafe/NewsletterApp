@@ -8,7 +8,7 @@ import com.juanmafe.newsletter.ports.in.GetAllNewsService;
 import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
- * Get All News Service.
+ * Get All News.
  * @author juanmafe.
  */
 @Service

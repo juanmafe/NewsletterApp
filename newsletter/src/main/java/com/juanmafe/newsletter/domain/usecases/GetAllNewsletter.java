@@ -1,28 +1,26 @@
-package com.juanmafe.newsletter.domain.services.newsletter;
+package com.juanmafe.newsletter.domain.usecases;
 
+import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
+import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
- * Create Newsletter Service.
+ * Get All Newsletter Service.
  * @author juanmafe.
  */
 @Service
-public class CreateNewsletterService {
+public class GetAllNewsletter implements GetAllNewsletterService {
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@Autowired
 	private NewsletterPersistence newsletterPersistence;
 
-	/**
-	 * Creates a newsletter subscription.
-	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
-	 * @return {@link String}.
-	 */
-	public String execute(NewsletterSubscription newsletterSubscription) {
-		return newsletterPersistence.save(newsletterSubscription);
+	@Override
+	public Stream<NewsletterSubscription> execute() {
+		return newsletterPersistence.getAllNewsletters();
 	}
 
 }

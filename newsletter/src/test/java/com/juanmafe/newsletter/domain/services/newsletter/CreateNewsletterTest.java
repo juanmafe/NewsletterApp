@@ -10,7 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
+import com.juanmafe.newsletter.domain.usecases.CreateNewsletter;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
+import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
@@ -19,9 +21,9 @@ import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-class CreateNewsletterServiceTest {
+class CreateNewsletterTest {
 
-	/** {@link CreateNewsletterService} createNewsletterService */
+	/** {@link CreateNewsletter} createNewsletterService */
 	@Autowired
 	private CreateNewsletterService createNewsletterService;
 

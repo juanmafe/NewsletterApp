@@ -1,18 +1,17 @@
 package com.juanmafe.newsletter.domain.services.newsletter;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import com.juanmafe.newsletter.domain.usecases.GetAllNewsletter;
+import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
+import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
@@ -21,15 +20,11 @@ import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-class DeleteNewsletterServiceTest {
+class GetAllNewsletterTest {
 
-	/** {@link DeleteNewsletterService} deleteNewsletterService */
+	/** {@link GetAllNewsletter} getAllNewsletterService */
 	@Autowired
-	private DeleteNewsletterService deleteNewsletterService;
-
-	/** {@link DeleteNewsletterService} deleteNewsletterServiceForVoids */
-	@Mock
-	private DeleteNewsletterService deleteNewsletterServiceForVoids;
+	private GetAllNewsletterService getAllNewsletterService;
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@MockBean
@@ -40,19 +35,15 @@ class DeleteNewsletterServiceTest {
 	 */
 	@BeforeEach
 	void init() {
-		doNothing().when(newsletterPersistence).delete(Mockito.anyString());
+		Mockito.when(newsletterPersistence.getAllNewsletters()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
 	}
 
 	/**
-	 * Checks the delete newsletter service.
+	 * Checks the get all newsletter service.
 	 */
 	@Test
-	void deleteNewsletterSubscriptionTest() {
-		String id = null;
-		deleteNewsletterService.execute(id);
-		assertNull(id);
-		deleteNewsletterServiceForVoids.execute(id);
-		verify(deleteNewsletterServiceForVoids, times(1)).execute(id);
+	void getAllNewsletterSubscriptionsTest() {
+		assertThat(getAllNewsletterService.execute()).isNotEmpty().anyMatch(ns -> ns.getName().equals("Juan"));
 	}
 
 }

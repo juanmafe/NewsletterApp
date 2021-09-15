@@ -13,8 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import com.juanmafe.newsletter.adapters.rest.newsletter.NewsletterCreateRest;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.services.newsletter.CreateNewsletterService;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
+import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
 
 /**
  * Newsletter Create Rest Controller Test.
