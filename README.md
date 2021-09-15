@@ -1,26 +1,22 @@
 # Newsletter App
 
-La aplicación se compone de:
-- Arquitectura de microservicios.
-- Arquitectura hexagonal a nivel de negocio.
-- Utiliza Java 11.
-- Tecnologías utilizadas: Maven, Spring Boot, Spring Core, Mockito, Junit5, SpringRunner, Jacoco, Jpa y Spring Data.
+- Hexagonal architecture.
+- Java 11.
+- Tecnologies: Maven, Spring Boot, Spring Core, Spring Security, Mockito, Junit5, SpringRunner, Jacoco, Jpa, Spring Data, Mongo y Maria. 
 
-A continuación se especifican:
-- Un pequeño UML donde se describe el diseño del cual se compone la arquitectura (herencia, implementaciones, llamadas), sin entrar a nivel de atributos debido a que la aplicación de diseño es bastante tosca para realizar dicho UML a un buen nivel de detalle. La razón de haber elegido una arquitectura hexagonal ha sido pensando en su escalabilidad. Si el día de mañana se quiere pasar a/ añadir Mongo, se podría a través de un adaptador.
-![UML image](/aktios/files/uml.png)
+- An UML. The reason for choosing a hexagonal architecture was for scalability, where you can choose different inputs, outputs and data resources.
+![UML image](/newsletter/files/uml.png)
 
-- Un pequeño MER, donde se provee un diagrama entidad-relación de la BBDD utilizada. Para la aplicación se ha usado MariaDB bajo Docker. La razón de haber elegido una BBDD relacional ha sido pensando, de nuevo, en su escalabilidad (posiblidad de crear subcategorias, newsletter para empresas, etc). Las BBDD no relacionales son muy buenas para lectura pero son muy ineficientes para escritura y borrado. Si la aplicación fuese con un propósito más puro de consumo (como un feed), quizás hubiese elegido MongoDB diseñando los documentos en funcion de la vista.
-![UML image](/aktios/files/mer.png)
+- An ER model, MariaDB and MongoDB under Docker have been used. The reason for choosing a relational database was (again) thinking about scalability (possibility of creating subcategories, newsletter for companies, etc). MongoDB has been used for a "news feed" function (the document of Mongo database selected just have two fields: "title" and "description").
+![UML image](/newsletter/files/mer.png)
 
-- Los test unitarios y la cobertura de los mismos con Junit5, Mockito y SpringRunner. Estos se ejecutan al iniciar la aplicación. Se han testeado únicamente las clases que contienen negocio (las que se componen de entidades y DTOs las he excluido con una anotación creada manualmente para jacoco). La cobertura es del 100% aunque en la captura no lo muestre. Por alguna razón, jacoco no está detectando los test de los métodos void de los delete, aunque como se muestra en la segunda captura, si que ese están ejecutando (parece ser un bug del mismo).
-![UML image](/aktios/files/jacoco.png)
-![UML image](/aktios/files/voids.png)
+- Junit5, Mockito and SpringRunner have been used for the unit tests. Only the classes that contain business logic have been tested (entities and DTOs have been excluded with an annotation). Jacoco has been used for the coverage and it is 100%.
+![UML image](/newsletter/files/jacoco.png)
 
 
-- La aplicación dispone de tres llamadas:
+- The application has four REST services:
 
-    * GET: /newsletter/subscriptions
+    * GET: /newsletter
        * Response (200):
          > [
              {
@@ -47,7 +43,21 @@ A continuación se especifican:
                  ]
              }
            ]
-    * POST: /newsletter/subscriptions
+    * GET: /news
+       * Response (200):
+         > [
+             {
+                 "id": "6139ccd8265938ab510b71d3",
+                 "title": "Lanzamiento Windows 11",
+                 "description": "Microsoft lanzará en octubre Windows 11"
+             },
+             {
+                 "id": "6139ccd9265938ab510b71d4",
+                 "title": "Lanzamiento Manjaro 20.1",
+                 "description": "El equipo de Manjaro lanzó en agosto la version 20.1"
+             }
+           ]
+    * POST: /newsletter
        * BodyRequest:
          > {
            "name" : "Prueba",
@@ -57,11 +67,11 @@ A continuación se especifican:
            }
        * Response (201):
          > 13
-    * DELETE: /newsletter/subscriptions/10
+    * DELETE: /newsletter/10
         * Response (200).
 
-- La instalación puede realizarse de dos modos:
-    * Importando el proyecto desde un IDE con soporte de Spring Boot e iniciandola con un click.
-    * Haciendo click en el fichero mvnw.cmd de la raiz del proyecto. Se descargarán todas las dependencias y se levantará la aplicación. 
+- The installation can be done in two ways:
+    * By importing the project from an IDE with Spring Boot support and starting it with one click.
+    * By clicking on the mvnw script file in the root of the project. All dependencies will be downloaded and the application will be started. 
     
-  Previamente hay que editar el fichero properties con las propiedades de conexión a la BBDD que hayamos levantado en local. Los ficheros SQL (de ejecución normal y de rollback) se encuentran al lado del fichero properties en la siguiente ruta: 'aktios/src/main/resources'.
+  Previously, it is necessary to edit the properties file with the connection properties of our local database. SQL files (rollback included) are located in the following path: '/resources/database'.
