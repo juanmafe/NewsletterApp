@@ -19,9 +19,9 @@ import com.juanmafe.newsletter.domain.services.news.GetAllNewsService;
 @RequestMapping("/news")
 public class NewsGetAllRest {
 
-	/** {@link GetAllNewsService} newsService */
+	/** {@link GetAllNewsService} getAllNewsService */
 	@Autowired
-	private GetAllNewsService newsService;
+	private GetAllNewsService getAllNewsService;
 
 	/**
 	 * Gets all news.
@@ -30,7 +30,7 @@ public class NewsGetAllRest {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public Stream<News> getAllNews() {
-		return newsService.execute();
+		return getAllNewsService.execute();
 	}
 
 }

@@ -2,6 +2,7 @@ package com.juanmafe.newsletter.ports.dto;
 
 import java.time.LocalDate;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
 
 /**
@@ -12,18 +13,22 @@ import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
 public class NewsletterConsumedDto {
 
 	/** {@link String} name */
+	@NotEmpty(message = "Please provide a name.")
 	private String name;
 
 	/** {@link String} surname */
+	@NotEmpty(message = "Please provide a surname.")
 	private String surname;
 
 	/** {@link LocalDate} birthday */
 	private LocalDate birthday;
 
 	/** {@link String} frequency */
+	@NotEmpty(message = "Please provide a frequency.")
 	private String frequency;
 
 	/** {@link String} {@link List} technologies */
+	@NotEmpty(message = "Please provide a technology.")
 	private List<String> technologies;
 
 	/**

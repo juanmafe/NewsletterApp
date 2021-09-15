@@ -30,12 +30,11 @@ public class NewsletterSubscriptionEntity {
 
 	/** {@link Long} id */
 	@Id
-	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	/** {@link String} name */
-	@NotNull(message = "el nombre debe ser obligatorio")
+	@NotNull
 	@Column(name="NAME", length=200, nullable=false)
 	private String name;
 

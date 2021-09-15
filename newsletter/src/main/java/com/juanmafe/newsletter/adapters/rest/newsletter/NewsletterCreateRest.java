@@ -1,9 +1,9 @@
 package com.juanmafe.newsletter.adapters.rest.newsletter;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,7 @@ public class NewsletterCreateRest implements ToNewsletterSubscriptionMapper {
 	 */
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public String createNewsletter(@NonNull @RequestBody NewsletterConsumedDto newsletterConsumedDto) {
+	public String createNewsletter(@Valid @RequestBody NewsletterConsumedDto newsletterConsumedDto) {
 		return createNewsletterService.execute(toNewsletterSubscription(newsletterConsumedDto));
 	}
 
