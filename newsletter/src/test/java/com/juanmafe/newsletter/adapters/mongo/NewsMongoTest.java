@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.ports.mongo;
+package com.juanmafe.newsletter.adapters.mongo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;

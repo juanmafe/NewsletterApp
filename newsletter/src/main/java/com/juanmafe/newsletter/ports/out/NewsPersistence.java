@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.domain.persistence;
+package com.juanmafe.newsletter.ports.out;
 
 import java.util.stream.Stream;
 import com.juanmafe.newsletter.domain.models.news.News;

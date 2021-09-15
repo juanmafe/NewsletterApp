@@ -2,7 +2,7 @@ package com.juanmafe.newsletter.domain.services.newsletter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.juanmafe.newsletter.domain.persistence.NewsletterPersistence;
+import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
  * Delete Newsletter Service.

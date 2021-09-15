@@ -7,8 +7,8 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import com.juanmafe.newsletter.domain.persistence.NewsPersistence;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
+import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
  * Get All News Service Test.

@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.persistence.NewsletterPersistence;
+import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
  * Get All Newsletter Service.

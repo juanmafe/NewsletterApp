@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.ports.jpa;
+package com.juanmafe.newsletter.adapters.jpa;
 
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.juanmafe.newsletter.adapters.jpa.dao.NewsletterRepository;
 import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterSubscriptionEntity;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.persistence.NewsletterPersistence;
 import com.juanmafe.newsletter.domain.utils.NewsletterUtils;
 import com.juanmafe.newsletter.ports.mappers.ToNewsletterSubscriptionMapper;
+import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
  * Newsletter JPA Persistence Layer.

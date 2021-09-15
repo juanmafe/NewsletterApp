@@ -1,12 +1,12 @@
-package com.juanmafe.newsletter.ports.mongo;
+package com.juanmafe.newsletter.adapters.mongo;
 
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.juanmafe.newsletter.adapters.mongo.dao.NewsRepository;
 import com.juanmafe.newsletter.domain.models.news.News;
-import com.juanmafe.newsletter.domain.persistence.NewsPersistence;
 import com.juanmafe.newsletter.ports.mappers.ToNewsMapper;
+import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
  * Newsletter Mongo Persistence Layer.

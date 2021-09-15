@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.ports.jpa;
+package com.juanmafe.newsletter.adapters.jpa;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
