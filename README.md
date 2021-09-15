@@ -62,8 +62,8 @@
          > {
            "name" : "Prueba",
            "surname" : "Insert",
-           "frequency" : {"id" : "1"},
-           "technologies" : [{"id" : "1"}, {"id" : "2"}]
+           "frequency" : "1",
+           "technologies" : [ "1", "2"]
            }
        * Response (201):
          > 13
