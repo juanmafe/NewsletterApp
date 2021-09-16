@@ -1,54 +1,35 @@
-package com.juanmafe.newsletter.ports.dto;
+package com.juanmafe.newsletter.adapters.rest.dto;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
+import javax.validation.constraints.NotEmpty;
 import com.juanmafe.newsletter.annotations.ExcludeFromJacocoGeneratedReport;
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterTechnologies;
 
 /**
- * Newsletter Produced DTO.
+ * Newsletter Consumed DTO.
  * @author juanmafe.
  */
 @ExcludeFromJacocoGeneratedReport
-public class NewsletterProducedDto implements Serializable {
-
-	/** serialVersionUID */
-	private static final long serialVersionUID = 8312984321018060549L;
+public class NewsletterConsumedDto {
 
 	/** {@link String} name */
+	@NotEmpty(message = "Please provide a name.")
 	private String name;
 
 	/** {@link String} surname */
+	@NotEmpty(message = "Please provide a surname.")
 	private String surname;
 
 	/** {@link LocalDate} birthday */
 	private LocalDate birthday;
 
 	/** {@link String} frequency */
+	@NotEmpty(message = "Please provide a frequency.")
 	private String frequency;
 
 	/** {@link String} {@link List} technologies */
+	@NotEmpty(message = "Please provide a technology.")
 	private List<String> technologies;
-
-	/**
-	 * Default Constructor.
-	 */
-	public NewsletterProducedDto() {}
-
-	/**
-	 * Constructor based on {@link NewsletterSubscription}.
-	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
-	 */
-	public NewsletterProducedDto(NewsletterSubscription newsletterSubscription) {
-		this.name = newsletterSubscription.getName();
-		this.surname = newsletterSubscription.getSurname();
-		this.birthday = newsletterSubscription.getBirthday();
-		this.frequency = newsletterSubscription.getFrequency().getName();
-		this.technologies = newsletterSubscription.getTechnologies().stream().map(NewsletterTechnologies::getName).collect(Collectors.toList());
-	}
 
 	/**
 	 * @return the name

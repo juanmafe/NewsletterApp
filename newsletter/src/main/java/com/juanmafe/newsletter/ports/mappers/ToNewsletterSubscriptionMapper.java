@@ -2,8 +2,8 @@ package com.juanmafe.newsletter.ports.mappers;
 
 import org.springframework.util.ObjectUtils;
 import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterSubscriptionEntity;
+import com.juanmafe.newsletter.adapters.rest.dto.NewsletterConsumedDto;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.ports.dto.NewsletterConsumedDto;
 
 /**
  * To NewsletterSubscription Mapper.
