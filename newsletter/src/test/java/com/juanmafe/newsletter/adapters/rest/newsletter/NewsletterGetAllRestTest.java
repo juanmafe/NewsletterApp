@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.rest;
+package com.juanmafe.newsletter.adapters.rest.newsletter;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -9,23 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import com.juanmafe.newsletter.adapters.rest.news.NewsGetAllRest;
-import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
-import com.juanmafe.newsletter.ports.in.GetAllNewsService;
+import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
+import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
 
 /**
- * News Get All Rest Controller Test.
+ * Newsletter Get All Rest Controller Test.
  * @author juanmafe.
  */
-@WebMvcTest(NewsGetAllRest.class)
-class NewsGetAllRestTest {
+@WebMvcTest(NewsletterGetAllRest.class)
+class NewsletterGetAllRestTest {
 
 	/** URL */
-	private static final String URL_NEWS= "/news";
+	private static final String URL_NEWSLETTER = "/newsletter";
 
-	/** {@link GetAllNewsService} getAllNewsService */
+	/** {@link GetAllNewsletterService} getAllNewsletterService */
 	@MockBean
-	private GetAllNewsService getAllNewsService;
+	private GetAllNewsletterService getAllNewsletterService;
 
 	/** {@link MockMvc} mockMvc */
 	@Autowired
@@ -36,16 +35,16 @@ class NewsGetAllRestTest {
 	 */
 	@BeforeEach
 	void init() {
-		Mockito.when(getAllNewsService.execute()).thenReturn(ObjectMotherNews.getNewsStream());
+		Mockito.when(getAllNewsletterService.execute()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
 	}
 
 	/**
-	 * Checks the get all news REST.
+	 * Checks the get all newsletter REST.
 	 * @throws Exception.
 	 */
 	@Test
-	void getAllNewsRestTest() throws Exception {
-		mockMvc.perform(get(URL_NEWS)).andExpect(status().isOk());
+	void getAllNewslettersRestTest() throws Exception {
+		mockMvc.perform(get(URL_NEWSLETTER)).andExpect(status().isOk());
 	}
 
 }

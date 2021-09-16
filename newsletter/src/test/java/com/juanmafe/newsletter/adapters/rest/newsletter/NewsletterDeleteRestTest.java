@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.rest;
+package com.juanmafe.newsletter.adapters.rest.newsletter;
 
 import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import com.juanmafe.newsletter.adapters.rest.newsletter.NewsletterDeleteRest;
 import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
 
 /**

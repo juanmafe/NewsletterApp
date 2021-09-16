@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.adapters.rest;
+package com.juanmafe.newsletter.adapters.rest.newsletter;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import com.juanmafe.newsletter.adapters.rest.newsletter.NewsletterCreateRest;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
 import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
