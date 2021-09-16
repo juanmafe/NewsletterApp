@@ -1,8 +1,8 @@
 package com.juanmafe.newsletter.adapters.jpa;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.juanmafe.newsletter.adapters.jpa.dao.NewsletterRepository;
 import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterSubscriptionEntity;
@@ -72,9 +73,7 @@ class NewsletterJpaTest {
 	 */
 	@Test
 	void deleteNewsletterSubscriptionNullTest() {
-		String id = null;
-		newsletterJpa.delete(id);
-		assertNull(id);
+		assertThatExceptionOfType(InvalidDataAccessApiUsageException.class).isThrownBy(() -> newsletterJpa.delete(null));
 	}
 
 	/**
@@ -82,9 +81,7 @@ class NewsletterJpaTest {
 	 */
 	@Test
 	void deleteNewsletterSubscriptionNotNumericTest() {
-		String id = "a";
-		newsletterJpa.delete(id);
-		assertEquals("a", id);
+		assertThatExceptionOfType(InvalidDataAccessApiUsageException.class).isThrownBy(() -> newsletterJpa.delete("a"));
 	}
 
 	/**

@@ -7,7 +7,6 @@ import com.juanmafe.newsletter.adapters.jpa.dao.NewsletterRepository;
 import com.juanmafe.newsletter.adapters.jpa.entities.NewsletterSubscriptionEntity;
 import com.juanmafe.newsletter.adapters.jpa.mappers.ToNewsletterSubscriptionMapper;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.utils.NewsletterUtils;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
@@ -33,7 +32,7 @@ public class NewsletterJpa implements NewsletterPersistence {
 
 	@Override
 	public void delete(String id) {
-		if (NewsletterUtils.isNumeric(id)) newsletterRepository.deleteById(Long.valueOf(id));
+		newsletterRepository.deleteById(Long.parseLong(id));
 	}
 
 }
