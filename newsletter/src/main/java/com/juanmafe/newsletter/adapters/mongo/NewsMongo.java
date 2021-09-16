@@ -4,8 +4,8 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.juanmafe.newsletter.adapters.mongo.dao.NewsRepository;
+import com.juanmafe.newsletter.adapters.mongo.mappers.ToNewsMapper;
 import com.juanmafe.newsletter.domain.models.news.News;
-import com.juanmafe.newsletter.ports.mappers.ToNewsMapper;
 import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
@@ -13,7 +13,7 @@ import com.juanmafe.newsletter.ports.out.NewsPersistence;
  * @author juanmafe.
  */
 @Repository
-public class NewsMongo implements NewsPersistence, ToNewsMapper {
+public class NewsMongo implements NewsPersistence {
 
 	/** {@link NewsRepository} newsRepository */
 	@Autowired
@@ -21,7 +21,7 @@ public class NewsMongo implements NewsPersistence, ToNewsMapper {
 
 	@Override
 	public Stream<News> getAllNews() {
-		return newsRepository.findAll().stream().map(this::toNews);
+		return newsRepository.findAll().stream().map(ToNewsMapper::toNews);
 	}
 
 }
