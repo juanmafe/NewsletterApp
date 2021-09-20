@@ -4,16 +4,15 @@ import java.util.stream.Stream;
 import com.juanmafe.newsletter.domain.models.news.News;
 
 /**
- * Get all News Service.
+ * News Service.
  * @author juanmafe.
- *
  */
-public interface GetAllNewsService {
+public interface NewsService {
 
 	/**
 	 * Gets all news.
 	 * @return {@link News} {@link Stream}.
 	 */
-	Stream<News> execute();
+	Stream<News> getAll();
 
 }

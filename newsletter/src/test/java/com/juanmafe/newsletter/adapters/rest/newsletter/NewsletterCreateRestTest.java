@@ -13,7 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
-import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Create Rest Controller Test.
@@ -26,9 +26,9 @@ class NewsletterCreateRestTest {
 	/** URL */
 	private static final String URL_NEWSLETTER = "/newsletter";
 
-	/** {@link CreateNewsletterService} createNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@MockBean
-	private CreateNewsletterService createNewsletterService;
+	private NewsletterService newsletterService;
 
 	/** {@link MockMvc} mockMvc */
 	@Autowired
@@ -39,7 +39,7 @@ class NewsletterCreateRestTest {
 	 */
 	@BeforeEach
 	void init() {
-		Mockito.when(createNewsletterService.execute(Mockito.any(NewsletterSubscription.class))).thenReturn("1");
+		Mockito.when(newsletterService.create(Mockito.any(NewsletterSubscription.class))).thenReturn("1");
 	}
 
 	/**

@@ -1,8 +1,7 @@
-package com.juanmafe.newsletter.domain.usecases;
+package com.juanmafe.newsletter.domain.usecases.newsletter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
@@ -10,13 +9,16 @@ import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
  * @author juanmafe.
  */
 @Service
-public class DeleteNewsletter implements DeleteNewsletterService {
+public class DeleteNewsletter {
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@Autowired
 	private NewsletterPersistence newsletterPersistence;
 
-	@Override
+	/**
+	 * Deletes a newsletter subscription.
+	 * @param id {@link String}.
+	 */
 	public void execute(String id) {
 		newsletterPersistence.delete(id);
 	}

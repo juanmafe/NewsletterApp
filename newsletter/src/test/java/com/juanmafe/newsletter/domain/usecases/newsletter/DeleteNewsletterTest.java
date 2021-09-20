@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.domain.services.newsletter;
+package com.juanmafe.newsletter.domain.usecases.newsletter;
 
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.doNothing;
@@ -13,24 +13,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
- * Newsletter Service Test.
+ * Delete Newsletter Test.
  * @author juanmafe.
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 class DeleteNewsletterTest {
 
-	/** {@link DeleteNewsletterService} deleteNewsletterService */
+	/** {@link DeleteNewsletter} deleteNewsletter */
 	@Autowired
-	private DeleteNewsletterService deleteNewsletterService;
+	private DeleteNewsletter deleteNewsletter;
 
-	/** {@link DeleteNewsletterService} deleteNewsletterServiceForVoids */
+	/** {@link DeleteNewsletter} deleteNewsletterForVoids */
 	@Mock
-	private DeleteNewsletterService deleteNewsletterServiceForVoids;
+	private DeleteNewsletter deleteNewsletterForVoids;
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@MockBean
@@ -50,10 +49,10 @@ class DeleteNewsletterTest {
 	@Test
 	void deleteNewsletterSubscriptionTest() {
 		String id = null;
-		deleteNewsletterService.execute(id);
+		deleteNewsletter.execute(id);
 		assertNull(id);
-		deleteNewsletterServiceForVoids.execute(id);
-		verify(deleteNewsletterServiceForVoids, times(1)).execute(id);
+		deleteNewsletterForVoids.execute(id);
+		verify(deleteNewsletterForVoids, times(1)).execute(id);
 	}
 
 }

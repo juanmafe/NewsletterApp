@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Delete Rest Controller.
@@ -17,9 +17,9 @@ import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
 @RequestMapping("/newsletter")
 public class NewsletterDeleteRest {
 
-	/** {@link DeleteNewsletterService} deleteNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@Autowired
-	private DeleteNewsletterService deleteNewsletterService;
+	private NewsletterService newsletterService;
 
 	/**
 	 * Deletes a newsletter subscription.
@@ -28,7 +28,7 @@ public class NewsletterDeleteRest {
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteNewsletter(@PathVariable("id") String id) {
-		deleteNewsletterService.execute(id);
+		newsletterService.deleteById(id);
 	}
 
 }

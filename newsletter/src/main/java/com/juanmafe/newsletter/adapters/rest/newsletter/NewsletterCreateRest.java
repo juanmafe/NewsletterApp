@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.juanmafe.newsletter.adapters.rest.dto.NewsletterConsumedDto;
 import com.juanmafe.newsletter.adapters.rest.mappers.ToNewsletterSubscriptionMapper;
-import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Create Rest Controller.
@@ -21,9 +21,9 @@ import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
 @RequestMapping("/newsletter")
 public class NewsletterCreateRest {
 
-	/** {@link CreateNewsletterService} createNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@Autowired
-	private CreateNewsletterService createNewsletterService;
+	private NewsletterService newsletterService;
 
 	/**
 	 * Creates a newsletter subscription.
@@ -33,7 +33,7 @@ public class NewsletterCreateRest {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public String createNewsletter(@Valid @RequestBody NewsletterConsumedDto newsletterConsumedDto) {
-		return createNewsletterService.execute(ToNewsletterSubscriptionMapper.toNewsletterSubscription(newsletterConsumedDto));
+		return newsletterService.create(ToNewsletterSubscriptionMapper.toNewsletterSubscription(newsletterConsumedDto));
 	}
 
 }

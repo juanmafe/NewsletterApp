@@ -1,6 +1,6 @@
-package com.juanmafe.newsletter.domain.services.newsletter;
+package com.juanmafe.newsletter.domain.usecases.newsletter;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,23 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.domain.usecases.CreateNewsletter;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
-import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
- * Newsletter Service Test.
+ * Get All Newsletter Test.
  * @author juanmafe.
  */
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-class CreateNewsletterTest {
+class GetAllNewsletterTest {
 
-	/** {@link CreateNewsletter} createNewsletterService */
+	/** {@link GetAllNewsletter} getAllNewsletter */
 	@Autowired
-	private CreateNewsletterService createNewsletterService;
+	private GetAllNewsletter getAllNewsletter;
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@MockBean
@@ -36,15 +33,15 @@ class CreateNewsletterTest {
 	 */
 	@BeforeEach
 	void init() {
-		Mockito.when(newsletterPersistence.save(Mockito.any(NewsletterSubscription.class))).thenReturn("1");
+		Mockito.when(newsletterPersistence.getAllNewsletters()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
 	}
 
 	/**
-	 * Checks the create newsletter service.
+	 * Checks the get all newsletter service.
 	 */
 	@Test
-	void createNewsletterSubscriptionTest() {
-		assertEquals("1", createNewsletterService.execute(ObjectMotherNewsletter.getNewsletterSubscription()));
+	void getAllNewsletterSubscriptionsTest() {
+		assertThat(getAllNewsletter.execute()).isNotEmpty().anyMatch(ns -> ns.getName().equals("Juan"));
 	}
 
 }

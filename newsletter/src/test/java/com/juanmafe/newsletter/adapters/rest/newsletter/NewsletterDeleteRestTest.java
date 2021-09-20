@@ -11,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import com.juanmafe.newsletter.ports.in.DeleteNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Delete Rest Controller Test.
@@ -24,9 +24,9 @@ class NewsletterDeleteRestTest {
 	/** URL */
 	private static final String URL_NEWSLETTER = "/newsletter";
 
-	/** {@link DeleteNewsletterService} deleteNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@MockBean
-	private DeleteNewsletterService deleteNewsletterService;
+	private NewsletterService newsletterService;
 
 	/** {@link MockMvc} mockMvc */
 	@Autowired
@@ -37,7 +37,7 @@ class NewsletterDeleteRestTest {
 	 */
 	@BeforeEach
 	void init() {
-		doNothing().when(deleteNewsletterService).execute(Mockito.anyString());
+		doNothing().when(newsletterService).deleteById(Mockito.anyString());
 	}
 
 	/**

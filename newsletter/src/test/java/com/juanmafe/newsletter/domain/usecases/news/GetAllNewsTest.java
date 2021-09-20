@@ -1,4 +1,4 @@
-package com.juanmafe.newsletter.domain.services.news;
+package com.juanmafe.newsletter.domain.usecases.news;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,19 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNews;
-import com.juanmafe.newsletter.ports.in.GetAllNewsService;
+import com.juanmafe.newsletter.ports.in.NewsService;
 import com.juanmafe.newsletter.ports.out.NewsPersistence;
 
 /**
- * Get All News Service Test.
+ * Get All News Test.
  * @author juanmafe.
  */
 @SpringBootTest
 class GetAllNewsTest {
 
-	/** {@link GetAllNewsService} getAllNewsService */
+	/** {@link NewsService} newsService */
 	@Autowired
-	private GetAllNewsService getAllNewsService;
+	private NewsService newsService;
 
 	/** {@link NewsPersistence} newsPersistence */
 	@MockBean
@@ -39,7 +39,7 @@ class GetAllNewsTest {
 	 */
 	@Test
 	void getAllNewsServiceTest() {
-		assertThat(getAllNewsService.execute()).isNotEmpty().anyMatch(n -> n.getTitle().equals("Linux"));
+		assertThat(newsService.getAll()).isNotEmpty().anyMatch(n -> n.getTitle().equals("Linux"));
 	}
 
 }

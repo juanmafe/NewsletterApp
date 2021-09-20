@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.juanmafe.newsletter.adapters.rest.dto.NewsletterProducedDto;
-import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Get All Rest Controller.
@@ -19,9 +19,9 @@ import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
 @RequestMapping("/newsletter")
 public class NewsletterGetAllRest {
 
-	/** {@link GetAllNewsletterService} getAllNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@Autowired
-	private GetAllNewsletterService getAllNewsletterService;
+	private NewsletterService newsletterService;
 
 	/**
 	 * Gets all newsletter subscriptions.
@@ -30,7 +30,7 @@ public class NewsletterGetAllRest {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public Stream<NewsletterProducedDto> getAllNewsletters() {
-		return getAllNewsletterService.execute().map(NewsletterProducedDto::new);
+		return newsletterService.getAll().map(NewsletterProducedDto::new);
 	}
 
 }

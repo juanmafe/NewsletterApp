@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import com.juanmafe.newsletter.objectmother.ObjectMotherNewsletter;
-import com.juanmafe.newsletter.ports.in.GetAllNewsletterService;
+import com.juanmafe.newsletter.ports.in.NewsletterService;
 
 /**
  * Newsletter Get All Rest Controller Test.
@@ -22,9 +22,9 @@ class NewsletterGetAllRestTest {
 	/** URL */
 	private static final String URL_NEWSLETTER = "/newsletter";
 
-	/** {@link GetAllNewsletterService} getAllNewsletterService */
+	/** {@link NewsletterService} newsletterService */
 	@MockBean
-	private GetAllNewsletterService getAllNewsletterService;
+	private NewsletterService newsletterService;
 
 	/** {@link MockMvc} mockMvc */
 	@Autowired
@@ -35,7 +35,7 @@ class NewsletterGetAllRestTest {
 	 */
 	@BeforeEach
 	void init() {
-		Mockito.when(getAllNewsletterService.execute()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
+		Mockito.when(newsletterService.getAll()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
 	}
 
 	/**

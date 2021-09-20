@@ -1,9 +1,8 @@
-package com.juanmafe.newsletter.domain.usecases;
+package com.juanmafe.newsletter.domain.usecases.newsletter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.juanmafe.newsletter.domain.models.newsletter.NewsletterSubscription;
-import com.juanmafe.newsletter.ports.in.CreateNewsletterService;
 import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
 
 /**
@@ -11,13 +10,17 @@ import com.juanmafe.newsletter.ports.out.NewsletterPersistence;
  * @author juanmafe.
  */
 @Service
-public class CreateNewsletter implements CreateNewsletterService {
+public class CreateNewsletter {
 
 	/** {@link NewsletterPersistence} newsletterPersistence */
 	@Autowired
 	private NewsletterPersistence newsletterPersistence;
 
-	@Override
+	/**
+	 * Creates a newsletter subscription.
+	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
+	 * @return {@link String}.
+	 */
 	public String execute(NewsletterSubscription newsletterSubscription) {
 		return newsletterPersistence.save(newsletterSubscription);
 	}
